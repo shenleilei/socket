@@ -9,7 +9,7 @@
 #include <linux/netlink.h>
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Koorey King");
+MODULE_AUTHOR("Shen Lei");
 struct nlmsghdr *nlh=NULL;
 struct sock *nl_sk = NULL;
 static void nl_data_ready (struct sk_buff *skb)
@@ -44,3 +44,4 @@ static void __exit mycleanup_module(void)
 
 module_init(myinit_module);
 module_exit(mycleanup_module);
+
