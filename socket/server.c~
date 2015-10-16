@@ -13,12 +13,12 @@
 #define SOURCE_PORT 8000
 
 #define SOURCE_IP_ADDRESS "192.168.177.128"
-void process_info(pid_t pid)
+void process_info(int fd)
 {
 	int recv_num;
 	int send_num;
 	char recv_buf [50];
-	char send_buf [50]="shenlei";
+	char send_buf []="shenlei";
 	while (1)
 	{
 		printf("begin recv:\n");

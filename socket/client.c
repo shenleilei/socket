@@ -12,7 +12,7 @@
 #define DEST_PORT 8000
 #define DEST_IP_ADDR "192.168.177.128"
 
-void process_info(pid_t pid)
+void process_info(int fd)
 {
 	int send_num;
 	char send_buf [] = "helloworld";
@@ -20,7 +20,7 @@ void process_info(pid_t pid)
 	while (1)
 	{
 		printf("begin send\n");
-		send_num = send(pid, send_buf, sizeof(send_buf),0);
+		send_num = send(fd, send_buf, sizeof(send_buf),0);
 		if (send_num < 0)
 		{
 			perror("send error");
@@ -30,7 +30,7 @@ void process_info(pid_t pid)
 		{
 		printf("send successful\n");
 		printf("begin recv:\n");
-		int recv_num = recv(pid,recv_buf,sizeof(recv_buf),0);
+		int recv_num = recv(fd,recv_buf,sizeof(recv_buf),0);
 		 if(recv_num < 0){
 			perror("recv");
 			exit(1);

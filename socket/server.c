@@ -13,7 +13,7 @@
 #define SOURCE_PORT 8000
 
 #define SOURCE_IP_ADDRESS "192.168.177.128"
-void process_info(pid_t pid)
+void process_info(int fd)
 {
 	int recv_num;
 	int send_num;
@@ -22,7 +22,7 @@ void process_info(pid_t pid)
 	while (1)
 	{
 		printf("begin recv:\n");
-		recv_num = recv(pid, recv_buf, sizeof(recv_buf), 0);
+		recv_num = recv(fd, recv_buf, sizeof(recv_buf), 0);
 		if (recv_num < 0)
 		{
 			perror("recv error");
@@ -33,7 +33,7 @@ void process_info(pid_t pid)
 			recv_buf[recv_num] = '\0';
 		}
 		printf("receive %d bytes: %s\n",recv_num, recv_buf);
-		send(pid, send_buf, sizeof(send_buf), 0);
+		send(fd, send_buf, sizeof(send_buf), 0);
 	}
 }
 
