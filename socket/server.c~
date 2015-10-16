@@ -18,7 +18,7 @@ void process_info(pid_t pid)
 	int recv_num;
 	int send_num;
 	char recv_buf [50];
-	char send_buf []="shenlei";
+	char send_buf [50]="shenlei";
 	while (1)
 	{
 		printf("begin recv:\n");
